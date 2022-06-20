@@ -7,12 +7,19 @@
 
 import UIKit
 
+
+
 class TableViewController: UITableViewController {
+    
 
     let cityList = City().getCityList()
+    var model = WeatherModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        model.delegate = self
+        model.getWeather()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,6 +27,8 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
 
     // MARK: - Table view data source
 
@@ -89,4 +98,12 @@ class TableViewController: UITableViewController {
     }
     */
 
+}
+
+extension TableViewController: WeatherModelProtocol {
+    // MARK: - WeatherModelProtocol functions
+    
+    func weatherRetrieved(weather: CurrentWeather) {
+        print("암튼 뭘 함!")
+    }
 }
