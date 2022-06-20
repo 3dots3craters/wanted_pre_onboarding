@@ -6,42 +6,51 @@
 //
 
 import Foundation
-
-protocol WeatherModelProtocol {
-    func weatherRetrieved(weather: CurrentWeather)
-}
+import UIKit
 
 class WeatherModel {
     
-    var delegate : WeatherModelProtocol?
-    
-    
-    func getLatLon(of cityName: String) -> [Double]? {
-        let urlString = "http://api.openweathermap.org/geo/1.0/direct?q=\(cityName),\(countryCode)&limit={limit}&appid=\(Storage().apiKey)"
+    func getWeather(lat: Double, lon: Double) async throws -> CurrentWeather {
+        guard let url = URL(string: Storage().weatherURLprefix + "\(lat)" + Storage().weatherURLmiddle + "\(lon)" + Storage().weatherURLsuffix + Storage().apiKey) else {
+            throw WeatherDownloadError.invalidURLString
+        }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw WeatherDownloadError.invalidServerResponse
+        }
         
-        let url = URL(string: urlString)
-        guard url != nil else {
-            print("Can not create url object")
-            return nil
+        let currentWeather = try JSONDecoder().decode(CurrentWeather.self, from: data)
+        
+        return currentWeather
+    }
+    
+    func getWeatherImage(icon: String) -> UIImage? {
+        let url = URL(string: "http://openweathermap.org/img/wn/\(icon)@2x.png")
+        
+        do {
+            let data = try Data(contentsOf: url!)
+            return UIImage(data: data)
         }
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: url!) { (data, response, error) in
-            if error == nil && data != nil {
-                let decoder = JSONDecoder()
-                do {
-                    let Weather
-                }
-            }
-            
+        catch {
+            print("Get Image Error")
         }
+        return nil
+    }
+    
+    func getCityInfo(of cityName: String) async throws -> CityInfo {
+        
+        guard let url = URL(string: Storage().geoURLprefix + cityName + Storage().geoURLsuffix + Storage().apiKey) else {
+            throw WeatherDownloadError.invalidURLString
+        }
+       
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw WeatherDownloadError.invalidServerResponse
+        }
+        let cities = try JSONDecoder().decode([CityInfo].self, from: data)
+        
+        return cities.filter({$0.country == "KR"})[0]
         
     }
     
-    func getWeather(of cityName: String) {
-        
-        let latLon = getLatLon(of: cityName)
-        
-        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(latLon[0])&lon=\(latLon[1])&appid=\(Storage().apiKey)"
-        delegate?.weatherRetrieved(weather: CurrentWeather데이터)
-    }
 }

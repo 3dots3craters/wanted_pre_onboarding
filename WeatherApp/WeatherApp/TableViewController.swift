@@ -17,10 +17,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        model.delegate = self
-        model.getWeather()
-
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -48,7 +45,22 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherInfo", for: indexPath) as! TableViewCell
         // Configure the cell...
+        Task {
+            do {
+                let cityInfo = try await model.getCityInfo(of: cityList[indexPath.row])
+                let cityWeather = try await model.getWeather(lat: cityInfo.lat, lon: cityInfo.lon)
+                cell.weatherImage.image = model.getWeatherImage(icon: cityWeather.weather[0].icon)
+                cell.tempHumidityLable?.text = "\(Int(cityWeather.main.temp) - 273)℃/\(cityWeather.main.humidity)%"
+            }
+            catch WeatherDownloadError.invalidURLString {
+                print("weather error - invalidURLString")
+            }
+            catch WeatherDownloadError.invalidServerResponse {
+                print("weather error - invalidServerResponse")
+            }
+        }
         cell.cityName?.text = cityList[indexPath.row]
+        
         return cell
     }
     
@@ -98,12 +110,4 @@ class TableViewController: UITableViewController {
     }
     */
 
-}
-
-extension TableViewController: WeatherModelProtocol {
-    // MARK: - WeatherModelProtocol functions
-    
-    func weatherRetrieved(weather: CurrentWeather) {
-        print("암튼 뭘 함!")
-    }
 }
