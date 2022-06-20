@@ -75,6 +75,7 @@
 				9F9C507A285F44E2002806C1 /* Assets.xcassets */,
 				9F9C507C285F44E2002806C1 /* LaunchScreen.storyboard */,
 				9F9C507F285F44E2002806C1 /* Info.plist */,
+				9F9A2D3E285FF29800DEF9ED /* Storage.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -85,7 +86,6 @@
 				9F9C508B285FD00C002806C1 /* City.swift */,
 				9F9C508E285FDA93002806C1 /* Weather.swift */,
 				9F9A2D3C285FDF9E00DEF9ED /* WeatherModel.swift */,
-				9F9A2D3E285FF29800DEF9ED /* Storage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
