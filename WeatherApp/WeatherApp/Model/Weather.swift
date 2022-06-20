@@ -17,6 +17,7 @@ struct weatherInfo {
     var speed : Double
     var description : String
     var icon : String
+    var name : String
 }
 
 struct CityInfo : Codable {

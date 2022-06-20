@@ -11,7 +11,7 @@ import UIKit
 class WeatherModel {
     
     func getWeather(lat: Double, lon: Double) async throws -> CurrentWeather {
-        guard let url = URL(string: Storage().weatherURLprefix + "\(lat)" + Storage().weatherURLmiddle + "\(lon)" + Storage().weatherURLsuffix + Storage().apiKey) else {
+        guard let url = URL(string: Storage().weatherURLprefix + "\(lat)" + Storage().weatherURLLon + "\(lon)" + Storage().weatherURLappid + Storage().apiKey + Storage().weatherURLsuffix) else {
             throw WeatherDownloadError.invalidURLString
         }
         let (data, response) = try await URLSession.shared.data(from: url)
