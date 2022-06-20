@@ -8,53 +8,54 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
+        <!--TableViewController-->
         <scene sceneID="ydY-x3-j9z">
             <objects>
-                <tableViewController title="First View Controller" id="K2v-vL-XDY" customClass="TableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="TableViewController" id="K2v-vL-XDY" customClass="TableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ffo-H7-k4v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherInfo" id="v0I-ft-Dte" customClass="TableViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="131.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="140.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v0I-ft-Dte" id="ciL-5H-DbT">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="131.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="140.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="31C-nF-56a">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="131.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1C-Eg-WyL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="131.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="140.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도시이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xB5-Xa-En0">
-                                                    <rect key="frame" x="75" y="0.0" width="59" height="131.5"/>
+                                                    <rect key="frame" x="75" y="0.0" width="59" height="140.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rIU-uE-2zA">
-                                                    <rect key="frame" x="134" y="0.0" width="74.5" height="131.5"/>
+                                                    <rect key="frame" x="134" y="0.0" width="74.5" height="140.5"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTf-E8-0mx">
-                                                    <rect key="frame" x="208.5" y="0.0" width="74.5" height="131.5"/>
+                                                    <rect key="frame" x="208" y="0.0" width="74.5" height="140.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1Kr-lo-WpS">
-                                                    <rect key="frame" x="283" y="0.0" width="131" height="131.5"/>
+                                                    <rect key="frame" x="282.5" y="0.0" width="131.5" height="140.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재기온 / 현재습도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBO-Dc-Kox">
-                                                            <rect key="frame" x="0.0" y="0.0" width="131" height="66"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="131.5" height="70.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재기온/현재습도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u25-Yo-uUq">
-                                                            <rect key="frame" x="4.5" y="66" width="122.5" height="65.5"/>
+                                                            <rect key="frame" x="4.5" y="70.5" width="122.5" height="70"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -66,8 +67,10 @@
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
+                                            <gestureRecognizers/>
                                         </stackView>
                                     </subviews>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="31C-nF-56a" secondAttribute="trailing" id="Pdb-VF-PUA"/>
                                         <constraint firstItem="31C-nF-56a" firstAttribute="top" secondItem="ciL-5H-DbT" secondAttribute="top" id="VkH-wn-wuA"/>
@@ -87,17 +90,20 @@
                             <outlet property="delegate" destination="K2v-vL-XDY" id="A8R-Mf-iqS"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="BD8-V6-c8B" kind="show" identifier="weatherVC" id="eqX-V9-Jn0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQm-qg-zp7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-152.17391304347828" y="-589.28571428571422"/>
         </scene>
-        <!--Second View Controller-->
+        <!--WeatherViewController-->
         <scene sceneID="Ny0-g6-H7B">
             <objects>
-                <viewController title="Second View Controller" id="BD8-V6-c8B" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weatherVC" title="WeatherViewController" id="BD8-V6-c8B" customClass="WeatherViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="acr-2s-nCY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r0K-ze-eb6">
@@ -164,10 +170,14 @@
                         <viewLayoutGuide key="safeArea" id="6PC-6g-rVD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QBu-qA-Ce1"/>
+                    <connections>
+                        <outlet property="cityName" destination="BrE-hg-9Cp" id="81Z-4k-M7v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgB-a5-xeJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="905.79710144927549" y="78.348214285714278"/>
+            <point key="canvasLocation" x="694" y="-589"/>
         </scene>
     </scenes>
     <resources>
