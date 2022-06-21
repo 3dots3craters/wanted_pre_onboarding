@@ -10,7 +10,6 @@ import UIKit
 class WeatherViewController: UIViewController {
 
     @IBOutlet weak var weatherImage: UIImageView!
-    @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var descript: UILabel!
     @IBOutlet weak var temp_min: UILabel!
@@ -35,7 +34,6 @@ class WeatherViewController: UIViewController {
     }
     
     func updateView(with info: weatherInfo) async {
-        cityName.text = info.name
         temp.text = "\(Int(info.temp - 273))℃"
         descript.text = info.description
         temp_min.text = "\(Int(info.temp_min - 273))℃"

@@ -16,6 +16,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "날씨"
     }
 
 
@@ -33,13 +34,13 @@ class TableViewController: UITableViewController {
         Task {
             do {
                 let idx = indexPath.row
-                let city = try await getCityInfo(of: cityList[idx])
+                let city = try await getCityInfo(of: cityList[idx][0])
                 let weather = try await getWeatherInfo(lat: city.lat, lon: city.lon)
                 
-                data[idx] = weatherInfo(temp: weather.main.temp, feels_like: weather.main.feels_like, temp_min: weather.main.temp_min, temp_max: weather.main.temp_max, pressure: weather.main.pressure, humidity: weather.main.humidity, speed: weather.wind.speed, description: weather.weather[0].description, icon: weather.weather[0].icon, name: cityList[idx])
+                data[idx] = weatherInfo(temp: weather.main.temp, feels_like: weather.main.feels_like, temp_min: weather.main.temp_min, temp_max: weather.main.temp_max, pressure: weather.main.pressure, humidity: weather.main.humidity, speed: weather.wind.speed, description: weather.weather[0].description, icon: weather.weather[0].icon, name: cityList[idx][1])
                 
                 await cell.weatherImage.loadImage(icon: data[idx]?.icon ?? "01d")
-                cell.tempHumidityLable?.text = "\(Int(data[idx]?.temp ?? 273) - 273)℃/\(data[idx]?.humidity ?? 50)%"
+                cell.tempHumidityLable?.text = "\(Int(data[idx]?.temp ?? 273) - 273)℃ / \(data[idx]?.humidity ?? 50)%"
             }
             catch WeatherDownloadError.invalidURLString {
                 print("weather error - invalidURLString")
@@ -48,7 +49,7 @@ class TableViewController: UITableViewController {
                 print("weather error - invalidServerResponse")
             }
         }
-        cell.cityName?.text = cityList[indexPath.row]
+        cell.cityName?.text = cityList[indexPath.row][1]
         
         return cell
     }
@@ -61,12 +62,12 @@ class TableViewController: UITableViewController {
         guard let destination = segue.destination as? WeatherViewController else { return }
         if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
             destination.weather = data[selectedIndex]
+            destination.navigationItem.title = data[selectedIndex]?.name
         }
     }
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Click - \(indexPath.row)")
         self.performSegue(withIdentifier: "weatherVC", sender: self)
     }
 
