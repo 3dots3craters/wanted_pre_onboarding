@@ -11,3 +11,9 @@ enum WeatherDownloadError: Error {
     case invalidURLString
     case invalidServerResponse
 }
+
+enum ImageDownloadError: Error {
+    case invalidURLString
+    case invalidServerResponse
+    case invalidUIImage
+}

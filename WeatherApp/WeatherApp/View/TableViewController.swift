@@ -39,7 +39,7 @@ class TableViewController: UITableViewController {
                 
                 data[idx] = weatherInfo(temp: weather.main.temp, feels_like: weather.main.feels_like, temp_min: weather.main.temp_min, temp_max: weather.main.temp_max, pressure: weather.main.pressure, humidity: weather.main.humidity, speed: weather.wind.speed, description: weather.weather[0].description, icon: weather.weather[0].icon, name: cityList[idx])
                 
-                cell.weatherImage.image = model.getWeatherImage(icon: data[idx]?.icon ?? "01d")
+                await cell.weatherImage.loadImage(icon: data[idx]?.icon ?? "01d")
                 cell.tempHumidityLable?.text = "\(Int(data[idx]?.temp ?? 273) - 273)℃/\(data[idx]?.humidity ?? 50)%"
             }
             catch WeatherDownloadError.invalidURLString {

@@ -9,6 +9,7 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
+    @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var descript: UILabel!
@@ -28,10 +29,12 @@ class WeatherViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let info = weather else { return }
-        updateView(with: info)
+        Task {
+            await updateView(with: info)
+        }
     }
     
-    func updateView(with info: weatherInfo) {
+    func updateView(with info: weatherInfo) async {
         cityName.text = info.name
         temp.text = "\(Int(info.temp - 273))℃"
         descript.text = info.description
@@ -41,17 +44,6 @@ class WeatherViewController: UIViewController {
         humidity.text = "\(info.humidity)%"
         pressure.text = "\(info.pressure)hPa"
         speed.text = "\(Int(info.speed))m/s"
-        
-        
+        await weatherImage.loadImage(icon: info.icon)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

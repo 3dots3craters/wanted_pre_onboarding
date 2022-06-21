@@ -11,6 +11,7 @@ import UIKit
 class WeatherModel {
     
     func getWeather(lat: Double, lon: Double) async throws -> CurrentWeather {
+        
         guard let url = URL(string: Storage().weatherURLprefix + "\(lat)" + Storage().weatherURLLon + "\(lon)" + Storage().weatherURLappid + Storage().apiKey + Storage().weatherURLsuffix) else {
             throw WeatherDownloadError.invalidURLString
         }
@@ -18,23 +19,17 @@ class WeatherModel {
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw WeatherDownloadError.invalidServerResponse
         }
-        
         let currentWeather = try JSONDecoder().decode(CurrentWeather.self, from: data)
-        
         return currentWeather
     }
     
-    func getWeatherImage(icon: String) -> UIImage? {
-        let url = URL(string: "http://openweathermap.org/img/wn/\(icon)@2x.png")
+    func getWeatherImage(icon: String) throws -> UIImage? {
         
-        do {
-            let data = try Data(contentsOf: url!)
-            return UIImage(data: data)
+        guard let url = URL(string: "http://openweathermap.org/img/wn/\(icon)@2x.png") else {
+            throw ImageDownloadError.invalidURLString
         }
-        catch {
-            print("Get Image Error")
-        }
-        return nil
+        let data = try Data(contentsOf: url)
+        return UIImage(data: data)
     }
     
     func getCityInfo(of cityName: String) async throws -> CityInfo {
@@ -50,7 +45,6 @@ class WeatherModel {
         let cities = try JSONDecoder().decode([CityInfo].self, from: data)
         
         return cities.filter({$0.country == "KR"})[0]
-        
     }
     
 }
