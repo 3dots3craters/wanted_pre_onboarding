@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9F04B13328611A3A005235A6 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F04B13228611A3A005235A6 /* ImageCache.swift */; };
 		9F04B13628613420005235A6 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F04B13528613420005235A6 /* UIImageViewExtension.swift */; };
-		9F9A2D3D285FDF9E00DEF9ED /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A2D3C285FDF9E00DEF9ED /* WeatherModel.swift */; };
+		9F9A2D3D285FDF9E00DEF9ED /* networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A2D3C285FDF9E00DEF9ED /* networking.swift */; };
 		9F9A2D41285FF4B900DEF9ED /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A2D40285FF4B900DEF9ED /* Storage.swift */; };
 		9F9A2D43286008C900DEF9ED /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A2D42286008C900DEF9ED /* Error.swift */; };
 		9F9A2D462860562500DEF9ED /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A2D452860562500DEF9ED /* WeatherViewController.swift */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		9F04B13228611A3A005235A6 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		9F04B13528613420005235A6 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
-		9F9A2D3C285FDF9E00DEF9ED /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		9F9A2D3C285FDF9E00DEF9ED /* networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networking.swift; sourceTree = "<group>"; };
 		9F9A2D40285FF4B900DEF9ED /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		9F9A2D42286008C900DEF9ED /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		9F9A2D452860562500DEF9ED /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +61,14 @@
 				9F04B13528613420005235A6 /* UIImageViewExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9F04B14C28618DCC005235A6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9F9A2D3C285FDF9E00DEF9ED /* networking.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		9F9A2D44286055CC00DEF9ED /* View */ = {
@@ -97,6 +105,7 @@
 				9F9C5073285F44E0002806C1 /* SceneDelegate.swift */,
 				9F9C508D285FDA71002806C1 /* Model */,
 				9F9A2D44286055CC00DEF9ED /* View */,
+				9F04B14C28618DCC005235A6 /* Utils */,
 				9F9C5077285F44E0002806C1 /* Main.storyboard */,
 				9F9C507A285F44E2002806C1 /* Assets.xcassets */,
 				9F9C507C285F44E2002806C1 /* LaunchScreen.storyboard */,
@@ -110,7 +119,6 @@
 			children = (
 				9F9C508B285FD00C002806C1 /* City.swift */,
 				9F9C508E285FDA93002806C1 /* Weather.swift */,
-				9F9A2D3C285FDF9E00DEF9ED /* WeatherModel.swift */,
 				9F9A2D40285FF4B900DEF9ED /* Storage.swift */,
 				9F9A2D42286008C900DEF9ED /* Error.swift */,
 				9F04B13228611A3A005235A6 /* ImageCache.swift */,
@@ -195,7 +203,7 @@
 				9F9A2D462860562500DEF9ED /* WeatherViewController.swift in Sources */,
 				9F9C508A285FCF8F002806C1 /* TableViewCell.swift in Sources */,
 				9F9C5072285F44E0002806C1 /* AppDelegate.swift in Sources */,
-				9F9A2D3D285FDF9E00DEF9ED /* WeatherModel.swift in Sources */,
+				9F9A2D3D285FDF9E00DEF9ED /* networking.swift in Sources */,
 				9F9C5074285F44E0002806C1 /* SceneDelegate.swift in Sources */,
 				9F9A2D41285FF4B900DEF9ED /* Storage.swift in Sources */,
 				9F9C508F285FDA93002806C1 /* Weather.swift in Sources */,

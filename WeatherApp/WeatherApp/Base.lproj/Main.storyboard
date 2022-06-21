@@ -19,35 +19,35 @@
                         <gestureRecognizers/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherInfo" id="v0I-ft-Dte" customClass="TableViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="195"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="100.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v0I-ft-Dte" id="ciL-5H-DbT">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="31C-nF-56a">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도시이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xB5-Xa-En0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="138" height="195"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="138" height="100.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rIU-uE-2zA">
-                                                    <rect key="frame" x="138" y="0.0" width="138" height="195"/>
+                                                    <rect key="frame" x="138" y="0.0" width="138" height="100.5"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1Kr-lo-WpS">
-                                                    <rect key="frame" x="276" y="0.0" width="138" height="195"/>
+                                                    <rect key="frame" x="276" y="0.0" width="138" height="100.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기온 / 습도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBO-Dc-Kox">
-                                                            <rect key="frame" x="43" y="0.0" width="52" height="97.5"/>
+                                                            <rect key="frame" x="43" y="0.0" width="52" height="50.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u25-Yo-uUq">
-                                                            <rect key="frame" x="65" y="97.5" width="8" height="97.5"/>
+                                                            <rect key="frame" x="65" y="50.5" width="8" height="50"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -56,13 +56,16 @@
                                                 </stackView>
                                             </subviews>
                                             <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="2ov-Fb-NxU"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="31C-nF-56a" secondAttribute="trailing" id="1u1-gh-xcp"/>
-                                        <constraint firstItem="31C-nF-56a" firstAttribute="top" secondItem="ciL-5H-DbT" secondAttribute="top" id="BBQ-sy-RKI"/>
-                                        <constraint firstAttribute="bottom" secondItem="31C-nF-56a" secondAttribute="bottom" id="Qqo-KU-s1s"/>
+                                        <constraint firstAttribute="bottom" secondItem="31C-nF-56a" secondAttribute="bottom" id="9JT-3q-MKy"/>
+                                        <constraint firstItem="31C-nF-56a" firstAttribute="top" secondItem="ciL-5H-DbT" secondAttribute="top" id="YLN-II-3eH"/>
                                         <constraint firstItem="31C-nF-56a" firstAttribute="leading" secondItem="ciL-5H-DbT" secondAttribute="leading" id="tuJ-k4-izV"/>
                                     </constraints>
                                 </tableViewCellContentView>

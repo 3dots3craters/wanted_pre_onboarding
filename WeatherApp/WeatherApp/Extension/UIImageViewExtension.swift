@@ -17,7 +17,7 @@ extension UIImageView {
         }
         
         do {
-            guard let newImage = try WeatherModel().getWeatherImage(icon: key) else {
+            guard let newImage = try getWeatherImage(icon: key) else {
                 return
             }
             ImageCache.shared.setObject(newImage, forKey: cacheKey)
