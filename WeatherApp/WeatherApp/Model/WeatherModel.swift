@@ -10,9 +10,9 @@ import UIKit
 
 class WeatherModel {
     
-    func getWeather(lat: Double, lon: Double) async throws -> CurrentWeather {
+    func getWeatherInfo(of city: String) async throws -> CurrentWeather {
         
-        guard let url = URL(string: Storage().weatherURLprefix + "\(lat)" + Storage().weatherURLLon + "\(lon)" + Storage().weatherURLappid + Storage().apiKey + Storage().weatherURLsuffix) else {
+        guard let url = URL(string: Storage().weatherURLprefix + city + Storage().weatherURLappid + Storage().apiKey + Storage().weatherURLsuffix) else {
             throw WeatherDownloadError.invalidURLString
         }
         let (data, response) = try await URLSession.shared.data(from: url)
@@ -30,21 +30,6 @@ class WeatherModel {
         }
         let data = try Data(contentsOf: url)
         return UIImage(data: data)
-    }
-    
-    func getCityInfo(of cityName: String) async throws -> CityInfo {
-        
-        guard let url = URL(string: Storage().geoURLprefix + cityName + Storage().geoURLsuffix + Storage().apiKey) else {
-            throw WeatherDownloadError.invalidURLString
-        }
-       
-        let (data, response) = try await URLSession.shared.data(from: url)
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw WeatherDownloadError.invalidServerResponse
-        }
-        let cities = try JSONDecoder().decode([CityInfo].self, from: data)
-        
-        return cities.filter({$0.country == "KR"})[0]
     }
     
 }

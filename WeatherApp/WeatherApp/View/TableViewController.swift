@@ -33,9 +33,8 @@ class TableViewController: UITableViewController {
 
         Task {
             do {
-                let idx = indexPath.row
-                let city = try await model.getCityInfo(of: cityList[idx])
-                let weather = try await model.getWeather(lat: city.lat, lon: city.lon)
+                let idx = indexPath.row                
+                let weather = try await model.getWeatherInfo(of: cityList[idx])
                 
                 data[idx] = weatherInfo(temp: weather.main.temp, feels_like: weather.main.feels_like, temp_min: weather.main.temp_min, temp_max: weather.main.temp_max, pressure: weather.main.pressure, humidity: weather.main.humidity, speed: weather.wind.speed, description: weather.weather[0].description, icon: weather.weather[0].icon, name: cityList[idx])
                 

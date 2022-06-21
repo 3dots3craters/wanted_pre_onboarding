@@ -20,12 +20,6 @@ struct weatherInfo {
     var name : String
 }
 
-struct CityInfo : Codable {
-    var lat : Double
-    var lon : Double
-    var country : String
-}
-
 struct CurrentWeather : Codable {
     var weather : [weather]
     var main : main
