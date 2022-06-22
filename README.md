@@ -19,13 +19,15 @@
 #### DAY1 (2022.06.19)
 - 스토리보드를 이용해 UI를 구상했다.
 
-#### DAY2 (2022.06.20)
+#### DAY2 (2022.06.20) 
 - Open Weather의 API를 이용해 날씨 정보를 받아왔다.
 - 받아온 날씨 정보를 화면에 적절히 출력되도록 했다.
+- [그밖의 한 일](https://github.com/3dots3craters/wanted_pre_onboarding/wiki/DAY2)
 
 #### DAY3 (2022.06.21)
 - 캐시를 활용해 날씨 아이콘 이미지를 불러왔다.
 - 오토레이아웃을 이용해 UI를 다듬었다.
+- [그밖의 한 일](https://github.com/3dots3craters/wanted_pre_onboarding/wiki/DAY3)
 
 #### DAY4 (2022.06.22)
 - UI 마무리 작업을 진행했다.
