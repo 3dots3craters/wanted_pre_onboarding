@@ -11,7 +11,7 @@ extension UIImageView {
     
     func loadImage(icon key: String) async {
         let cacheKey = NSString(string: key)
-        if let cachedImage = ImageCache.shared.object(forKey: cacheKey) {
+        if let cachedImage = ImageCacheManager.shared.object(forKey: cacheKey) {
             self.image = cachedImage
             return
         }
@@ -20,7 +20,7 @@ extension UIImageView {
             guard let newImage = try getWeatherImage(icon: key) else {
                 return
             }
-            ImageCache.shared.setObject(newImage, forKey: cacheKey)
+            ImageCacheManager.shared.setObject(newImage, forKey: cacheKey)
             self.image = newImage
         }
         catch {

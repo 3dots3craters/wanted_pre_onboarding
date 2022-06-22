@@ -55,12 +55,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F04B13428613400005235A6 /* Extension */ = {
+		9F04B13428613400005235A6 /* ImageCache */ = {
 			isa = PBXGroup;
 			children = (
 				9F04B13528613420005235A6 /* UIImageViewExtension.swift */,
+				9F04B13228611A3A005235A6 /* ImageCache.swift */,
 			);
-			path = Extension;
+			path = ImageCache;
 			sourceTree = "<group>";
 		};
 		9F04B14C28618DCC005235A6 /* Utils */ = {
@@ -71,14 +72,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		9F9A2D44286055CC00DEF9ED /* View */ = {
+		9F9A2D44286055CC00DEF9ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				9F9C5089285FCF8F002806C1 /* TableViewCell.swift */,
 				9F9C5087285FCF69002806C1 /* TableViewController.swift */,
 				9F9A2D452860562500DEF9ED /* WeatherViewController.swift */,
 			);
-			path = View;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		9F9C5065285F44DF002806C1 = {
@@ -100,11 +101,11 @@
 		9F9C5070285F44E0002806C1 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				9F04B13428613400005235A6 /* Extension */,
 				9F9C5071285F44E0002806C1 /* AppDelegate.swift */,
 				9F9C5073285F44E0002806C1 /* SceneDelegate.swift */,
+				9F04B13428613400005235A6 /* ImageCache */,
 				9F9C508D285FDA71002806C1 /* Model */,
-				9F9A2D44286055CC00DEF9ED /* View */,
+				9F9A2D44286055CC00DEF9ED /* Controller */,
 				9F04B14C28618DCC005235A6 /* Utils */,
 				9F9C5077285F44E0002806C1 /* Main.storyboard */,
 				9F9C507A285F44E2002806C1 /* Assets.xcassets */,
@@ -121,7 +122,6 @@
 				9F9C508E285FDA93002806C1 /* Weather.swift */,
 				9F9A2D40285FF4B900DEF9ED /* Storage.swift */,
 				9F9A2D42286008C900DEF9ED /* Error.swift */,
-				9F04B13228611A3A005235A6 /* ImageCache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
